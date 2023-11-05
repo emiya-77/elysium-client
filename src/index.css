@@ -1,3 +1,13 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input-text {
+	@apply w-[280px] md:w-[530px] py-3 px-5 md:py-5 md:px-8 m-2 md:m-3 rounded-full focus:outline-none shadow-lg;
+}
+.bg-split {
+    background: linear-gradient(to right, #eca64e 0%, #eca64e 50%, #1a1817 50%, #1a1817 100%);
+  }
