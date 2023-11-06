@@ -11,6 +11,7 @@ import FoodMenu from "../../pages/FoodMenu/FoodMenu/FoodMenu";
 import AddItem from "../../pages/AddItem/AddItem";
 import FoodDetails from "../../pages/FoodDetails/FoodDetails";
 import PurchasePage from "../../pages/PurchasePage/PurchasePage";
+import BlogPage from "../../pages/BlogPage/BlogPage";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/blog',
+                element: <BlogPage></BlogPage>
             },
             {
                 path: '/food-menu',
