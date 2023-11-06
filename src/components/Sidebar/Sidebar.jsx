@@ -1,35 +1,42 @@
 
-import { HiMenuAlt3, HiOutlineBookOpen } from 'react-icons/hi';
+import { HiMenuAlt3, HiOutlineBookOpen, HiOutlineArrowUp } from 'react-icons/hi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
-import { AiOutlineUser, AiOutlineHeart, AiOutlineHome } from 'react-icons/ai';
-import { FiFolder, FiShoppingCart } from 'react-icons/fi';
-import { RiSettings4Line } from 'react-icons/ri';
+import { AiOutlineUser, AiOutlineHome } from 'react-icons/ai';
+import { BiMoon, BiSun } from 'react-icons/bi';
 import { FiLogOut } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { DataContext } from '../../providers/DataProvider';
 
 const Sidebar = () => {
-    const menus = [
-        { name: 'Home', link: '/', icon: AiOutlineHome },
-        { name: 'Profile', link: '/', icon: AiOutlineUser },
-        { name: 'Food Menu', link: '/', icon: MdOutlineRestaurantMenu },
-        { name: 'Blog', link: '/', icon: HiOutlineBookOpen },
-        { name: 'Log Out', link: '/', icon: FiLogOut, margin: true },
-        { name: 'Register', link: '/', icon: FiShoppingCart },
-        { name: 'Saved', link: '/', icon: AiOutlineHeart, margin: true },
-        { name: 'Setting', link: '/', icon: RiSettings4Line },
-    ]
+
+    const { darkMode, setDarkMode } = useContext(DataContext);
     const [open, setOpen] = useState(true);
+
+    const menus = [
+        { name: 'Home', link: '/home', icon: AiOutlineHome },
+        { name: 'Profile', link: '/profile', icon: AiOutlineUser },
+        { name: 'Food Menu', link: '/food-menu', icon: MdOutlineRestaurantMenu },
+        { name: 'Blog', link: '/blog', icon: HiOutlineBookOpen },
+        { name: 'Log Out', link: '/logout', icon: FiLogOut, margin: true },
+        { name: 'Register', link: '/register', icon: HiOutlineArrowUp, marginBot: true },
+        { name: 'Light', icon: BiSun, theme: true, light: true },
+        { name: 'Dark', icon: BiMoon, theme: true, dark: true },
+    ]
+
     return (
         <section className='flex gap-6'>
-            <div className={`bg-[#0e0e0e] min-h-screen ${open ? 'w-72' : 'w-16'} duration-500 text-gray-100 px-4`}>
-                <div className='py-3 flex justify-end'>
+            <div className={`bg-orange-50 dark:bg-[#ba721b] dark:text-white min-h-screen ${open ? 'w-72' : 'w-16'} duration-700 text-black px-3`}>
+                <div className={`py-3 flex ${open ? 'justify-between' : 'justify-center'}`}>
+                    <Link className='h-[60px] flex items-center' to='/home'>
+                        <img className={`${!open && 'hidden'} w-[100px] md:w-[150px]`} src={darkMode ? '/img/logo/elysium-dark.png' : '/public/img/logo/elysium-light.png'} alt="" />
+                    </Link>
                     <HiMenuAlt3 size={26} onClick={() => setOpen(!open)} className='cursor-pointer'></HiMenuAlt3>
                 </div>
                 <div className='mt-4 flex flex-col gap-4 relative'>
                     {
                         menus?.map((menu, i) => (
-                            <Link className={`${menu?.margin && 'mt-5'} group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md`} to={menu?.link} key={i}>
+                            <Link onClick={menu?.theme ? () => { setDarkMode(!darkMode) } : () => { }} className={`${menu?.margin ? 'mt-5' : menu?.marginBot ? 'mb-5' : ''} ${(darkMode && menu?.light) ? 'hidden' : (!darkMode && menu?.dark) ? 'hidden' : ''} group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-[#eec38e] rounded-md`} to={menu?.link} key={i}>
                                 <div>
                                     {React.createElement(menu?.icon, { size: '24' })}
                                 </div>
@@ -43,9 +50,9 @@ const Sidebar = () => {
                     }
                 </div>
             </div>
-            <div className='m-3 text-xl text-gray-900 font-semibold'>
+            {/* <div className='m-3 text-xl text-gray-900 font-semibold'>
                 ELYSIUM
-            </div>
+            </div> */}
         </section>
     );
 };

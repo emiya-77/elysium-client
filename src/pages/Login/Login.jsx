@@ -12,7 +12,7 @@ const Login = () => {
     const [registerError, setRegisterError] = useState('');
     const [success, setSuccess] = useState('');
     const [showPassword, setShowPassword] = useState();
-    const { signInUser, signInWithGoogle } = useContext(AuthContext);
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogin = e => {
@@ -24,7 +24,7 @@ const Login = () => {
         setRegisterError('');
         setSuccess('');
 
-        signInUser(email, password)
+        signIn(email, password)
             .then(result => {
                 setSuccess('Logged in Successfully.');
                 e.target.reset();

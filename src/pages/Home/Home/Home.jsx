@@ -1,12 +1,12 @@
-// import Navbar from "../../../components/Navbar/Navbar";
+import Navbar from "../../../components/Navbar/Navbar";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 
 
 const Home = () => {
     return (
         <div>
-            {/* <Navbar></Navbar> */}
-            <Sidebar></Sidebar>
+            <Navbar></Navbar>
+            {/* <Sidebar></Sidebar> */}
         </div>
     );
 };

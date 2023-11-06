@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
 
 const Register = () => {
     const [success, setSuccess] = useState('');
@@ -20,6 +21,8 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(name, email, password);
+
+        const user = { name, email };
 
         // reset error and success
         setRegisterError('');
@@ -69,6 +72,9 @@ const Register = () => {
         // create user in firebase
         createUser(email, password)
             .then(result => {
+                axios.post('http://localhost:5000/user', user)
+                    .then(res => console.log(res.data));
+
                 setSuccess('User Created Successfully');
                 e.target.reset();
 

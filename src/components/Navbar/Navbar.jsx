@@ -25,7 +25,7 @@ const Navbar = () => {
 
     const smNavLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/food-items'>All Food Items</NavLink></li>
+        <li><NavLink to='/food-menu'>Food Menu</NavLink></li>
         <li><NavLink to='/blog'>Blog</NavLink></li>
         {
             user
@@ -51,7 +51,7 @@ const Navbar = () => {
                     ? 'nav-list bg-white bg-opacity-20'
                     : 'nav-list bg-white bg-opacity-0'
             );
-        }} to='/food-items'>All Food Items</NavLink></li>
+        }} to='/food-menu'>Food Menu</NavLink></li>
         <li><NavLink className={({ isActive }) => {
             return (
                 isActive
@@ -97,7 +97,7 @@ const Navbar = () => {
             <nav className="list-none w-full xl:w-full xl:px-16 h-20 md:h-28 mx-auto px-4 lg:px-10 md:px-12 bg-white dark:bg-gray-900 bg-opacity-70 dark:bg-opacity-70 flex justify-between items-center backdrop-filter backdrop-blur-sm shadow-xl">
                 <div className="lg:hidden w-full flex justify-between items-center lg:flex-none">
                     <div className="w-[100px]">
-                        <img className="w-full h-full object-cover" src={darkMode ? "/img/global/mt-logo-light.png" : "/img/global/mt-logo-dark.png"} alt="" />
+                        <img className="w-full h-full object-cover" src={darkMode ? "/img/logo/elysium-dark.png" : "/img/logo/elysium-light.png"} alt="" />
                     </div>
                     <div className="flex justify-center items-center">
                         <button onClick={() => {
@@ -120,7 +120,7 @@ const Navbar = () => {
                         </div></div>
                 </div>
                 <div className="hidden lg:flex lg:w-[150px] xl:w-[170px]">
-                    <img className="w-full h-full object-cover" src={darkMode ? "/img/global/mt-logo-light.png" : "/img/global/mt-logo-dark.png"} alt="" />
+                    <img className="w-full h-full object-cover" src={darkMode ? "/img/logo/elysium-dark.png" : "/img/logo/elysium-light.png"} alt="" />
                 </div>
                 <div className="hidden lg:flex justify-center items-center gap-4">
                     {navLinks}
