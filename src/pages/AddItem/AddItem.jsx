@@ -1,5 +1,4 @@
 import Swal from "sweetalert2";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const AddItem = () => {

@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 .input-text {
-	@apply w-[280px] md:w-[530px] py-3 px-5 md:py-5 md:px-8 m-2 md:m-3 rounded-full focus:outline-none shadow-lg;
+	@apply w-[280px] md:w-[530px] py-3 px-5 md:py-5 md:px-8 m-2 md:m-3 rounded-full focus:outline-none border-none shadow-lg;
 }
 .bg-split {
 	background: linear-gradient(

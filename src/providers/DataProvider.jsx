@@ -8,6 +8,7 @@ const DataProvider = ({ children }) => {
 
     const initialDarkMode = JSON.parse(localStorage.getItem('darkMode')) || false;
     const [darkMode, setDarkMode] = useState(initialDarkMode);
+    const [refresh, setRefresh] = useState(true);
 
     useEffect(() => {
         localStorage.setItem('darkMode', JSON.stringify(darkMode));
@@ -19,6 +20,8 @@ const DataProvider = ({ children }) => {
     const data = {
         darkMode,
         setDarkMode,
+        refresh,
+        setRefresh
     };
 
     return (
