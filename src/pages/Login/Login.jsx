@@ -94,7 +94,7 @@ const Login = () => {
                 <meta charSet='utf-8' />
                 <title>Elysium | Login</title>
             </Helmet>
-            <div className='w-full flex justify-center items-center bg-split h-screen'>
+            <div className='w-full pt-20 flex justify-center items-center bg-split h-screen'>
                 <div className='mx-2 xl:mx-0 container relative bg-white lg:w-[1200px] h-[750px] flex flex-col-reverse md:flex-row justify-center rounded-3xl shadow-lg'>
                     <img className='w-40 md:w-48 absolute top-[270px] md:top-10 left-[76px] md:left-12' src="/img/logo/elysium-light.png" alt="" />
                     <div className='p-0 md:pl-20 w-full md:w-1/3 h-full relative flex justify-center items-center'>

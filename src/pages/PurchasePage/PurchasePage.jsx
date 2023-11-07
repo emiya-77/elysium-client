@@ -48,7 +48,7 @@ const PurchasePage = () => {
     return (
         <div>
             <div className='w-full flex justify-center items-center bg-split h-screen'>
-                <div className='container bg-white lg:w-[1200px] h-[650px] flex flex-col justify-center items-center rounded-3xl shadow-lg'>
+                <div className='container bg-orange-50 lg:w-[1200px] h-[650px] flex flex-col justify-center items-center rounded-3xl shadow-lg'>
                     <Link className="my-12" to='/'>
                         <img className='w-40 md:w-48' src="/img/logo/elysium-light.png" alt="logo" />
                     </Link>

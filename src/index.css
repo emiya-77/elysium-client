@@ -9,5 +9,17 @@
 	@apply w-[280px] md:w-[530px] py-3 px-5 md:py-5 md:px-8 m-2 md:m-3 rounded-full focus:outline-none shadow-lg;
 }
 .bg-split {
-    background: linear-gradient(to right, #eca64e 0%, #eca64e 50%, #1a1817 50%, #1a1817 100%);
-  }
+	background: linear-gradient(
+		to right,
+		#eca64e 0%,
+		#eca64e 50%,
+		#1a1817 50%,
+		#1a1817 100%
+	);
+}
+.select-box {
+	@apply w-full tracking-widest text-gray-400 font-extralight bg-gray-900 bg-opacity-10 border-b border-white border-opacity-40;
+}
+.nav-list {
+	@apply cursor-pointer text-xl text-orange-950 font-normal dark:text-white hover:bg-orange-300 hover:bg-opacity-40 rounded-lg dark:hover:bg-opacity-40 py-2 px-5 transition duration-300 ease-in-out dark:font-light tracking-wider;
+}

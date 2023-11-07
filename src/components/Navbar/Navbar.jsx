@@ -41,22 +41,22 @@ const Navbar = () => {
         <li><NavLink className={({ isActive }) => {
             return (
                 isActive
-                    ? 'nav-list bg-white bg-opacity-20'
-                    : 'nav-list bg-white bg-opacity-0'
+                    ? 'nav-list bg-orange-300 bg-opacity-40'
+                    : 'nav-list bg-orange-100 bg-opacity-0'
             );
         }} to='/'>Home</NavLink></li>
         <li><NavLink className={({ isActive }) => {
             return (
                 isActive
-                    ? 'nav-list bg-white bg-opacity-20'
-                    : 'nav-list bg-white bg-opacity-0'
+                    ? 'nav-list bg-orange-300 bg-opacity-40'
+                    : 'nav-list bg-orange-100 bg-opacity-0'
             );
         }} to='/food-menu'>Food Menu</NavLink></li>
         <li><NavLink className={({ isActive }) => {
             return (
                 isActive
-                    ? `nav-list bg-white bg-opacity-20`
-                    : 'nav-list bg-white bg-opacity-0'
+                    ? `nav-list bg-orange-300 bg-opacity-40`
+                    : 'nav-list bg-orange-100 bg-opacity-0'
             );
         }} to='/blog'>Blog</NavLink></li>
     </>
@@ -79,12 +79,19 @@ const Navbar = () => {
     </>
 
     const loginLinks = <>
-        <div className="flex items-center justify-center gap-2">
-            <div className="text-xl dark:font-light font-normal dark:tracking-widest tracking-wider dark:text-white text-black">
+        <div className="ml-4 flex items-center justify-center gap-2">
+            <div className="text-2xl dark:font-light font-normal dark:tracking-widest tracking-wider dark:text-white text-black">
                 {displayName ? displayName : ''}
             </div>
-            <div className="w-12 h-12 flex justify-center items-center bg-white rounded-full overflow-hidden">
-                <img src={photoURL ? photoURL : ''} className="w-full h-full object-cover" alt="" />
+            <div className="ml-2 dropdown dropdown-bottom dropdown-end">
+                <label tabIndex={0} className="w-12 h-12 flex justify-center items-center bg-white rounded-full overflow-hidden cursor-pointer">
+                    <img src={photoURL ? photoURL : ''} className="w-full h-full object-cover" alt="" />
+                </label>
+                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><Link to={`/my-food`}>My Food Items</Link></li>
+                    <li><Link to='/add-item'>Add Food Item</Link></li>
+                    <li><Link to={`/my-order`}>My Order</Link></li>
+                </ul>
             </div>
         </div>
         <li><Link to='/login'>
@@ -94,11 +101,13 @@ const Navbar = () => {
 
     return (
         <div className="fixed w-full z-10">
-            <nav className="list-none w-full xl:w-full xl:px-16 h-20 md:h-28 mx-auto px-4 lg:px-10 md:px-12 bg-white dark:bg-gray-900 bg-opacity-70 dark:bg-opacity-70 flex justify-between items-center backdrop-filter backdrop-blur-sm shadow-xl">
+            <nav className="list-none w-full xl:w-full xl:px-16 h-20 md:h-28 mx-auto px-4 lg:px-10 md:px-12 bg-orange-100 dark:bg-orange-950 bg-opacity-70 dark:bg-opacity-80 flex justify-between items-center backdrop-filter backdrop-blur-sm shadow-xl">
                 <div className="lg:hidden w-full flex justify-between items-center lg:flex-none">
-                    <div className="w-[100px]">
-                        <img className="w-full h-full object-cover" src={darkMode ? "/img/logo/elysium-dark.png" : "/img/logo/elysium-light.png"} alt="" />
-                    </div>
+                    <Link to='/'>
+                        <div className="w-[100px]">
+                            <img className="w-full h-full object-cover" src={darkMode ? "/img/logo/elysium-dark.png" : "/img/logo/elysium-light.png"} alt="" />
+                        </div>
+                    </Link>
                     <div className="flex justify-center items-center">
                         <button onClick={() => {
                             setDarkMode(!darkMode);
@@ -119,9 +128,11 @@ const Navbar = () => {
                             </ul>
                         </div></div>
                 </div>
-                <div className="hidden lg:flex lg:w-[150px] xl:w-[170px]">
-                    <img className="w-full h-full object-cover" src={darkMode ? "/img/logo/elysium-dark.png" : "/img/logo/elysium-light.png"} alt="" />
-                </div>
+                <Link to='/'>
+                    <div className="hidden lg:flex lg:w-[150px] xl:w-[170px]">
+                        <img className="w-full h-full object-cover" src={darkMode ? "/img/logo/elysium-dark.png" : "/img/logo/elysium-light.png"} alt="" />
+                    </div>
+                </Link>
                 <div className="hidden lg:flex justify-center items-center gap-4">
                     {navLinks}
                 </div>
