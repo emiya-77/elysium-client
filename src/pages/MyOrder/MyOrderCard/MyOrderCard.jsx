@@ -1,7 +1,8 @@
 
+import { RxCross1 } from 'react-icons/rx';
 
-const MyOrderCard = ({ orderItem, idx }) => {
-    const { food_name, food_price, date } = orderItem || {};
+const MyOrderCard = ({ orderItem, idx, handleDelete }) => {
+    const { food_name, food_price, date, _id } = orderItem || {};
     return (
         <tr>
             <th>
@@ -27,9 +28,14 @@ const MyOrderCard = ({ orderItem, idx }) => {
                 <span className="">{food_price}</span>
             </td>
             <td>{date}</td>
-            <th>
-                <button className="btn btn-ghost btn-xs">Chef</button>
-            </th>
+            <td>
+                <div className="font-semibold">Chef</div>
+            </td>
+            <td>
+                <button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-sm rounded-full w-10 h-10">
+                    <RxCross1></RxCross1>
+                </button>
+            </td>
         </tr>
     );
 };

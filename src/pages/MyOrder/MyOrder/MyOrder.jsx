@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import MyOrderCard from "../MyOrderCard/MyOrderCard";
+import Swal from "sweetalert2";
 
 
 const MyOrder = () => {
@@ -15,6 +16,41 @@ const MyOrder = () => {
         axiosSecure.get(url)
             .then(res => setMyOrderList(res.data));
     }, [url, axiosSecure]);
+
+
+    const handleDelete = id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to remove this?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/purchase-item/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            const remaining = myOrderList.filter(order => order._id !== id);
+                            setMyOrderList(remaining);
+                            Swal.fire({
+                                title: "Success!",
+                                text: "Item Added Successfully",
+                                icon: "success",
+                                confirmButtonText: "Cool",
+                            });
+                        }
+                    })
+            }
+        })
+
+    }
+
     return (
         <div className="container mx-auto pt-48">
             <div className="p-4 bg-orange-50 rounded-lg">
@@ -25,7 +61,7 @@ const MyOrder = () => {
                             <tr>
                                 <th>
                                     <label>
-                                        <input type="checkbox" className="checkbox" />
+                                        No.
                                     </label>
                                 </th>
                                 <th>Food Image</th>
@@ -33,12 +69,13 @@ const MyOrder = () => {
                                 <th>Price</th>
                                 <th>Added Date</th>
                                 <th>Food Owner</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         {/* rows */}
                         <tbody>
                             {
-                                myOrderList.map((orderItem, idx) => <MyOrderCard key={orderItem._id} idx={idx + 1} orderItem={orderItem}></MyOrderCard>)
+                                myOrderList.map((orderItem, idx) => <MyOrderCard key={orderItem._id} idx={idx + 1} handleDelete={handleDelete} orderItem={orderItem}></MyOrderCard>)
                             }
                         </tbody>
                     </table>
