@@ -13,6 +13,7 @@ import FoodDetails from "../../pages/FoodDetails/FoodDetails";
 import PurchasePage from "../../pages/PurchasePage/PurchasePage";
 import BlogPage from "../../pages/BlogPage/BlogPage";
 import MyOrder from "../../pages/MyOrder/MyOrder/MyOrder";
+import MyFoodItem from "../../pages/MyFoodItem/MyFoodItem/MyFoodItem";
 
 const router = createBrowserRouter([
     {
@@ -55,8 +56,12 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/food-menu/${params.id}`)
             },
             {
-                path: '/my-order/',
+                path: '/my-order',
                 element: <MyOrder></MyOrder>
+            },
+            {
+                path: '/my-food',
+                element: <MyFoodItem></MyFoodItem>
             }
         ]
     }

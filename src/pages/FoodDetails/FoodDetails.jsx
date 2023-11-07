@@ -17,7 +17,7 @@ const FoodDetails = () => {
                         <h2 className="text-2xl font-light">{foodCategory}</h2>
                         <h2 className="text-xl font-light"><span className="font-normal">Prepared By: </span>{madeBy}</h2>
                         <h2 className="text-xl font-light"><span className="font-normal">Origin: </span>{foodOrigin}</h2>
-                        <h2 className="text-xl font-light"><span className="font-normal">Description: </span>{shortDescription}</h2>
+                        <h2 className="text-xl font-light line-clamp-[10]"><span className="font-normal">Description: </span>{shortDescription}</h2>
                         <h2 className="text-3xl font-medium"><span className="text-xl font-normal">Price: </span>{price}</h2>
                     </div>
                     <Link to={`/purchase/${_id}`} className="flex justify-center items-center w-full py-3 text-orange-800 bg-orange-100 rounded-lg shadow-lg hover:bg-orange-300 hover:text-orange-950 transition-all duration-300">

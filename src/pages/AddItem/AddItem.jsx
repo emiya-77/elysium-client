@@ -9,14 +9,17 @@ const AddItem = () => {
         e.preventDefault();
 
         const form = e.target;
-        const name = form.name.value;
+        const foodName = form.foodName.value;
+        const foodImage = form.foodImage.value;
+        const foodCategory = form.foodCategory.value;
         const price = form.price.value;
-        const type = form.type.value;
-        const rating = form.rating.value;
-        const image = form.image.value;
-        const description = form.description.value;
+        const madeBy = form.addBy.value;
+        const foodOrigin = form.foodOrigin.value;
+        const shortDescription = form.shortDescription.value;
+        const quantity = form.quantity.value;
+        const orders = 0;
 
-        const newItem = { name, brand: selectedBrand, price, type, rating, image, description };
+        const newItem = { foodName, foodImage, foodCategory, price, madeBy, foodOrigin, shortDescription, quantity, orders };
         console.log(newItem);
 
         fetch("http://localhost:5000/add-item", {
@@ -50,7 +53,7 @@ const AddItem = () => {
                     </Link>
                     <div className='w-full h-full flex justify-center items-start'>
                         <div className='w-full justify-center items-center'>
-                            <form className='flex flex-col justify-center items-center'>
+                            <form onSubmit={handleAddItem} className='flex flex-col justify-center items-center'>
                                 <div className="flex flex-col justify-center items-center">
                                     <div className="flex items-center justify-center">
                                         <input className="input-text" type="text" name="foodName" placeholder="Food Name" required />
