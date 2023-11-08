@@ -80,15 +80,33 @@ const PurchasePage = () => {
                         <div className='w-full justify-center items-center'>
                             <form onSubmit={handlePurchase} className='flex flex-col justify-center items-center'>
                                 <div className="flex justify-center items-center">
-                                    <div className="flex flex-col items-center justify-center">
-                                        <input className="input-text" type="text" name="name" placeholder="Name" value={displayName} required />
-                                        <input className="input-text" type="email" name="email" placeholder="email" value={email} />
-                                        <input className="input-text" type="date" name="date" placeholder="date" required />
+                                    <div className="flex flex-col items-center justify-center gap-y-4">
+                                        <div>
+                                            <h2 className="pl-10 text-lg text-orange-600">Name</h2>
+                                            <input className="input-text" type="text" name="name" placeholder="Name" value={displayName} required />
+                                        </div>
+                                        <div>
+                                            <h2 className="pl-10 text-lg text-orange-600">Email</h2>
+                                            <input className="input-text" type="email" name="email" placeholder="email" value={email} />
+                                        </div>
+                                        <div>
+                                            <h2 className="pl-10 text-lg text-orange-600">Date</h2>
+                                            <input className="input-text" type="date" name="date" placeholder="date" required />
+                                        </div>
                                     </div>
-                                    <div className="flex flex-col items-center justify-center">
-                                        <input className="input-text" type="text" name="foodName" placeholder="Food Name" defaultValue={foodName} required />
-                                        <input className="input-text" type="text" name="price" placeholder="Price" defaultValue={price} />
-                                        <input className="input-text" type="text" name="quantity" placeholder="quantity" required />
+                                    <div className="flex flex-col items-center justify-center gap-y-4">
+                                        <div>
+                                            <h2 className="pl-10 text-lg text-orange-600">Food Name</h2>
+                                            <input className="input-text" type="text" name="foodName" placeholder="Food Name" defaultValue={foodName} required />
+                                        </div>
+                                        <div>
+                                            <h2 className="pl-10 text-lg text-orange-600">Price</h2>
+                                            <input className="input-text" type="text" name="price" placeholder="Price" defaultValue={price} />
+                                        </div>
+                                        <div>
+                                            <h2 className="pl-10 text-lg text-orange-600">Available - {quantity}</h2>
+                                            <input className="input-text" type="text" name="quantity" placeholder="quantity" required />
+                                        </div>
                                     </div>
                                 </div>
 
