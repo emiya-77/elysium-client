@@ -25,6 +25,8 @@ Welcome to Elysium – a full-stack web application designed for restaurant owne
 
 Explore Elysium on our [live website](https://elysium-5dc18.web.app).
 
+Live Link: https://elysium-5dc18.web.app
+
 ## Main Features
 
 - **View Food Items**: Users can browse and view a list of available food items, including details like food name, image, category, price, and more.
