@@ -1,9 +1,11 @@
 import { useContext, useRef } from "react";
 import Swal from "sweetalert2";
 import { DataContext } from "../../../providers/DataProvider";
+import useAuth from "../../../hooks/useAuth";
 
 
 const MyFoodItemCard = ({ foodItem, handleMyItemDelete }) => {
+    const { user } = useAuth();
     const { refresh, setRefresh } = useContext(DataContext);
     const { foodName, foodCategory, price, quantity, _id, foodOrigin, foodImage, madeBy, shortDescription, orders } = foodItem || {};
     const modalRef = useRef();
@@ -28,12 +30,13 @@ const MyFoodItemCard = ({ foodItem, handleMyItemDelete }) => {
         const foodImage = form.foodImage.value;
         const foodCategory = form.foodCategory.value;
         const price = form.price.value;
-        const madeBy = form.addBy.value;
+        const addBy = form.addBy.value;
+        const madeBy = user?.displayName;
         const foodOrigin = form.foodOrigin.value;
         const shortDescription = form.shortDescription.value;
         const quantity = form.quantity.value;
 
-        const updatedItem = { foodName, foodImage, foodCategory, price, madeBy, foodOrigin, shortDescription, quantity, orders };
+        const updatedItem = { foodName, foodImage, foodCategory, price, addBy, madeBy, foodOrigin, shortDescription, quantity, orders };
         console.log(updatedItem);
 
         fetch(`http://localhost:5000/food-menu/${id}`, {
@@ -108,7 +111,7 @@ const MyFoodItemCard = ({ foodItem, handleMyItemDelete }) => {
                                 </div>
                                 <div>
                                     <input className="input-text" type="text" name="price" placeholder="Price" defaultValue={price} required />
-                                    <input className="input-text" type="text" name="addBy" placeholder="Add By" defaultValue={madeBy} required />
+                                    <input className="input-text" type="text" name="addBy" placeholder="Add By" value={user?.email} required />
                                 </div>
                                 <div>
                                     <input className="input-text" type="text" name="foodOrigin" placeholder="Food Origin" defaultValue={foodOrigin} required />

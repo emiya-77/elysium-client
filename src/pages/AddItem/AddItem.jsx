@@ -1,8 +1,10 @@
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const AddItem = () => {
 
+    const { user } = useAuth();
 
     const handleAddItem = e => {
         e.preventDefault();
@@ -12,13 +14,14 @@ const AddItem = () => {
         const foodImage = form.foodImage.value;
         const foodCategory = form.foodCategory.value;
         const price = form.price.value;
-        const madeBy = form.addBy.value;
+        const addBy = form.addBy.value;
+        const madeBy = user?.displayName;
         const foodOrigin = form.foodOrigin.value;
         const shortDescription = form.shortDescription.value;
         const quantity = form.quantity.value;
         const orders = 0;
 
-        const newItem = { foodName, foodImage, foodCategory, price, madeBy, foodOrigin, shortDescription, quantity, orders };
+        const newItem = { foodName, foodImage, foodCategory, price, addBy, madeBy, foodOrigin, shortDescription, quantity, orders };
         console.log(newItem);
 
         fetch("http://localhost:5000/add-item", {
@@ -56,7 +59,7 @@ const AddItem = () => {
                                 <div className="flex flex-col justify-center items-center">
                                     <div className="flex items-center justify-center">
                                         <input className="input-text" type="text" name="foodName" placeholder="Food Name" required />
-                                        <input className="input-text" type="text" name="foodImage" placeholder="Food Image" />
+                                        <input className="input-text" type="text" name="foodImage" placeholder="Food Image URL" />
                                     </div>
                                     <div className="flex items-center justify-center">
                                         <input className="input-text" type="text" name="foodCategory" placeholder="Food Category" required />
@@ -64,7 +67,7 @@ const AddItem = () => {
                                     </div>
                                     <div>
                                         <input className="input-text" type="text" name="price" placeholder="Price" required />
-                                        <input className="input-text" type="text" name="addBy" placeholder="Add By" required />
+                                        <input className="input-text" type="text" name="addBy" placeholder="Add By" value={user?.email} required />
                                     </div>
                                     <div>
                                         <input className="input-text" type="text" name="foodOrigin" placeholder="Food Origin" required />

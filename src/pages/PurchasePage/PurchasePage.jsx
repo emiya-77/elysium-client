@@ -28,11 +28,35 @@ const PurchasePage = () => {
             food_price,
             food_quantity
         }
+        const incrementValue = 1;
         console.log(purchaseItem);
 
+        if (food_quantity > quantity) {
+            Swal.fire({
+                title: "Warning!",
+                text: "Available quantity exceeded! Decrease the quantity amount!",
+                icon: "warning",
+                confirmButtonText: "Okay",
+            });
+            return;
+        }
         axios.post('http://localhost:5000/purchase-item', purchaseItem)
             .then(res => {
                 console.log(res.data);
+                fetch(`http://localhost:5000/food-menu/${_id}/increment`, {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ incrementValue, food_quantity })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.modifiedCount > 0) {
+                            console.log('yay');
+                        }
+                    })
                 if (res.data.insertedId) {
                     Swal.fire({
                         title: "Success!",
@@ -64,7 +88,7 @@ const PurchasePage = () => {
                                     <div className="flex flex-col items-center justify-center">
                                         <input className="input-text" type="text" name="foodName" placeholder="Food Name" defaultValue={foodName} required />
                                         <input className="input-text" type="text" name="price" placeholder="Price" defaultValue={price} />
-                                        <input className="input-text" type="text" name="quantity" placeholder="quantity" defaultValue={quantity} required />
+                                        <input className="input-text" type="text" name="quantity" placeholder="quantity" required />
                                     </div>
                                 </div>
 

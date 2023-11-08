@@ -2,6 +2,7 @@
 // import Sidebar from "../../../components/Sidebar/Sidebar";
 
 import Banner from "../Banner/Banner";
+import PopularItems from "../PopularItems/PopularItems/PopularItems";
 
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
             {/* <Navbar></Navbar> */}
             {/* <Sidebar></Sidebar> */}
             <Banner></Banner>
+            <PopularItems></PopularItems>
         </div>
     );
 };
