@@ -4,6 +4,7 @@
 import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
 import PopularItems from "../PopularItems/PopularItems/PopularItems";
+import Testimonial from "../Testimonial/Testimonial";
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
             <Banner></Banner>
             <PopularItems></PopularItems>
             <Gallery></Gallery>
+            <Testimonial></Testimonial>
         </div>
     );
 };

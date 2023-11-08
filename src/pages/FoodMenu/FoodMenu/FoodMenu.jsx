@@ -65,7 +65,7 @@ const FoodMenu = () => {
             </div>
             <div className="container mx-auto my-16 flex flex-col justify-center items-center gap-16">
                 <h2 className="text-6xl font-light tracking-widest">The Complete Menu</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-y-5 md:gap-x-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-y-5 md:gap-x-16">
                     {
                         query
                             ? filteredFoodItems.map(foodItem => <FoodItemCard

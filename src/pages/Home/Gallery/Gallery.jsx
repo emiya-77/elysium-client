@@ -4,10 +4,10 @@ import './Gallery.css';
 const Gallery = () => {
     return (
         <>
-            <div id="gallery" className='bg-[#f9f6f0] dark:bg-gray-700 text-orange-50'>
+            <div className='p-4 md:p-16 bg-[#f9f6f0] dark:bg-gray-700 text-orange-50'>
                 <div className="text-center mb-14">
-                    <h3 className='text-3xl'>Our Gallery</h3>
-                    <h1 className='text-5xl font-semibold tracking-wider'>Our Untold Stories</h1>
+                    <h3 className='text-xl md:text-3xl'>Our Gallery</h3>
+                    <h1 className='text-3xl md:text-5xl font-semibold tracking-wider'>Our Untold Stories</h1>
                 </div>
 
                 <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-5'>
