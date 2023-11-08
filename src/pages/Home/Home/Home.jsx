@@ -2,6 +2,7 @@
 // import Sidebar from "../../../components/Sidebar/Sidebar";
 
 import Banner from "../Banner/Banner";
+import Gallery from "../Gallery/Gallery";
 import PopularItems from "../PopularItems/PopularItems/PopularItems";
 
 
@@ -12,6 +13,7 @@ const Home = () => {
             {/* <Sidebar></Sidebar> */}
             <Banner></Banner>
             <PopularItems></PopularItems>
+            <Gallery></Gallery>
         </div>
     );
 };

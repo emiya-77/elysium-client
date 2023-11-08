@@ -7,8 +7,8 @@ const Footer = () => {
     const { darkMode } = useContext(DataContext);
     return (
         <div>
-            <div className="bg-orange-100 dark:bg-orange-950 dark:bg-opacity-60">
-                <footer className="footer container mx-auto p-10 text-base-content flex justify-between dark:text-white">
+            <div className="w-full bg-orange-100 min-h-[250px] pt-5 dark:bg-orange-950 dark:bg-opacity-60">
+                <footer className="footer container mx-auto p-10 text-base-content flex flex-col md:flex-row justify-between items-start dark:text-white">
                     <aside>
                         <div className="">
                             <Link to='/'>
@@ -56,7 +56,7 @@ const Footer = () => {
                 </footer>
             </div>
             <aside className="text-center py-3 bg-orange-200 dark:bg-orange-950 dark:bg-opacity-80 text-base-content dark:text-orange-100">
-                <p className="text-sm font-semibold dark:font-normal">Copyright © 2023 - All right reserved by Elysium</p>
+                <p className="text-xs md:text-sm font-normal md:font-semibold dark:font-normal">Copyright © 2023 - All right reserved by Elysium</p>
             </aside>
         </div>
     );

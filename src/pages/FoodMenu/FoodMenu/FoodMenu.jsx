@@ -60,7 +60,7 @@ const FoodMenu = () => {
             <div className="container mx-auto mt-12 rounded-full h-[100px] bg-orange-200 flex justify-center items-center">
                 <div className="relative">
                     <AiOutlineSearch className="absolute top-4 left-6" size={40} color='#c39e73' opacity={.8}></AiOutlineSearch>
-                    <input value={query} onChange={e => setQuery(e.target.value)} type="text" name="search" placeholder="Search" className="w-[900px] h-[70px] pl-24 text-2xl tracking-wider font-light bg-white rounded-full focus:outline-none" />
+                    <input value={query} onChange={e => setQuery(e.target.value)} type="text" name="search" placeholder="Search" className="w-[900px] h-[70px] pl-24 text-2xl tracking-wider font-light bg-white rounded-full focus:outline-none border-none" />
                 </div>
             </div>
             <div className="container mx-auto my-16 flex flex-col justify-center items-center gap-16">

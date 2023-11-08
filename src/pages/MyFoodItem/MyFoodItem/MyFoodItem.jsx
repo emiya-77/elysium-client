@@ -17,7 +17,7 @@ const MyFoodItem = () => {
             .then(res => setMyFoodList(res.data));
     }, [url, axiosSecure, refresh]);
     console.log('user email:', user?.email);
-    console.log(myFoodList);
+    console.log('my food list:', myFoodList);
 
     const handleMyItemDelete = id => {
         Swal.fire({
@@ -54,7 +54,7 @@ const MyFoodItem = () => {
         <>
             <div className="container mx-auto pt-40 flex flex-col justify-center items-center gap-16">
                 <h2 className="text-6xl font-light tracking-widest">My Food Items</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-y-5 md:gap-x-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-y-5 md:gap-x-16 mb-24">
                     {
                         myFoodList.map(foodItem => <MyFoodItemCard
                             key={foodItem._id}

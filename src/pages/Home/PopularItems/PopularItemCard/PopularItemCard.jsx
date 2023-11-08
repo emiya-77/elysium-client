@@ -6,7 +6,7 @@ const PopularItemCard = ({ foodItem }) => {
     console.log('from popular card:', foodItem);
     return (
         <>
-            <div className="w-[400px] bg-orange-100 overflow-hidden shadow-lg relative group bg-opacity-80 backdrop-blur-sm m-2">
+            <div className="w-full md:w-[350px] lg:w-[400px] bg-orange-100 dark:bg-orange-800 dark:bg-opacity-40 backdrop-filter overflow-hidden shadow-lg relative group bg-opacity-80 backdrop-blur-sm p-2 md:m-2">
                 <div className="h-[250px] relative pb-2/3 group-hover:transform group-hover:scale-105 transition-transform duration-500 flex justify-center items-center">
                     <img
                         src='/public/img/food3.jpg'
@@ -14,9 +14,9 @@ const PopularItemCard = ({ foodItem }) => {
                         className="h-full w-full object-cover"
                     />
                 </div>
-                <div className="flex flex-col text-orange-900">
+                <div className="flex flex-col text-orange-900 dark:text-white">
                     <div className="px-6 pt-3 pb-1">
-                        <div className="font-normal text-3xl tracking-wider mb-2">{foodName}</div>
+                        <div className="font-normal line-clamp-1 text-3xl tracking-wider mb-2">{foodName}</div>
                         <p className="text-xl font-light tracking-wider">{foodCategory}</p>
                     </div>
                     <div className="px-6">
@@ -24,7 +24,7 @@ const PopularItemCard = ({ foodItem }) => {
                     </div>
                     <div className="px-6 py-4 flex justify-end">
                         <Link to={`/food-details/${_id}`}>
-                            <button className="bg-orange-200 hover:bg-orange-300 transition-all duration-500 text-black text-xl font-normal tracking-wider py-3 px-16 focus:outline-none focus:shadow-outline">
+                            <button className="bg-orange-200 dark:hover:text-orange-50 dark:bg-orange-300 dark:bg-opacity-70 dark:backdrop-filter dark:backdrop-blur-sm dark:hover:bg-orange-400 dark:hover:bg-opacity-60 hover:bg-orange-300 transition-all duration-500 text-black text-xl font-normal tracking-wider py-3 px-16 focus:outline-none focus:shadow-outline">
                                 Details
                             </button>
                         </Link>
