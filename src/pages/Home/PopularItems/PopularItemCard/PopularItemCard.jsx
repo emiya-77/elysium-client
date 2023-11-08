@@ -20,7 +20,7 @@ const PopularItemCard = ({ foodItem }) => {
                         <p className="text-xl font-light tracking-wider">{foodCategory}</p>
                     </div>
                     <div className="px-6">
-                        <span className="text-3xl font-light">{price}</span>
+                        <span className="text-3xl font-light">${price}</span>
                     </div>
                     <div className="px-6 py-4 flex justify-end">
                         <Link to={`/food-details/${_id}`}>

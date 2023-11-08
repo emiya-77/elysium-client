@@ -19,7 +19,7 @@ const FoodItemCard = ({ foodItem }) => {
                         <p className="text-xl font-light tracking-wider">{foodCategory}</p>
                     </div>
                     <div className="px-6 flex justify-between items-center">
-                        <span className="text-3xl font-light">{price}</span>
+                        <span className="text-3xl font-light">${price}</span>
                         <div className="flex items-center space-x-1">
                             <span className="text-orange-900 font-light text-2xl">Available: <span className="text-3xl font-light">{quantity}</span></span>
                         </div>

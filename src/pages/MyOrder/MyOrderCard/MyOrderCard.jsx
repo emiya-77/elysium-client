@@ -34,7 +34,7 @@ const MyOrderCard = ({ orderItem, idx, handleDelete }) => {
                 </div>
             </td>
             <td>
-                <span className="">{food_price}</span>
+                <span className="">${food_price}</span>
             </td>
             <td>{date}</td>
             <td>

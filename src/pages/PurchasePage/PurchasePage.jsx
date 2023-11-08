@@ -17,7 +17,7 @@ const PurchasePage = () => {
         const form = e.target;
         const food_name = form.foodName.value;
         const food_price = form.price.value;
-        const food_quantity = form.quantity.value;
+        const food_quantity = form.food_quantity.value;
         const date = form.date.value;
         const purchaseItem = {
             customerId: uid,
@@ -40,7 +40,8 @@ const PurchasePage = () => {
                 confirmButtonText: "Okay",
             });
             return;
-        } else if (food_quantity > quantity) {
+        }
+        if (food_quantity > quantity) {
             Swal.fire({
                 title: "Warning!",
                 text: "Available quantity exceeded! Decrease the quantity amount!",
@@ -48,7 +49,8 @@ const PurchasePage = () => {
                 confirmButtonText: "Okay",
             });
             return;
-        } else if (food_quantity == 0) {
+        }
+        if (food_quantity == 0) {
             Swal.fire({
                 title: "Warning!",
                 text: "Quantity cannot be 0!",
@@ -126,7 +128,7 @@ const PurchasePage = () => {
                                         </div>
                                         <div>
                                             <h2 className="pl-10 text-lg text-orange-600">Available - {quantity}</h2>
-                                            <input className="input-text" type="text" name="quantity" placeholder="quantity" required />
+                                            <input className="input-text" type="text" name="food_quantity" placeholder="quantity" required />
                                         </div>
                                     </div>
                                 </div>
