@@ -39,7 +39,7 @@ const MyFoodItemCard = ({ foodItem, handleMyItemDelete }) => {
         const updatedItem = { foodName, foodImage, foodCategory, price, addBy, madeBy, foodOrigin, shortDescription, quantity, orders };
         console.log(updatedItem);
 
-        fetch(`http://localhost:5000/food-menu/${id}`, {
+        fetch(`https://elysium-server.vercel.app/food-menu/${id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -68,7 +68,7 @@ const MyFoodItemCard = ({ foodItem, handleMyItemDelete }) => {
             <div className="w-[400px] bg-orange-100 overflow-hidden shadow-lg relative group bg-opacity-80 backdrop-blur-sm m-2">
                 <div className="h-[250px] relative pb-2/3 group-hover:transform group-hover:scale-105 transition-transform duration-500 flex justify-center items-center">
                     <img
-                        src='/public/img/food3.jpg'
+                        src={foodImage}
                         alt={foodName}
                         className="h-full w-full object-cover"
                     />

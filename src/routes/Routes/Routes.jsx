@@ -53,14 +53,14 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <FoodDetails></FoodDetails>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/food-menu/${params.id}`)
+                loader: ({ params }) => fetch(`https://elysium-server.vercel.app/food-menu/${params.id}`)
             },
             {
                 path: '/purchase/:id',
                 element: <PrivateRoute>
                     <PurchasePage></PurchasePage>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/food-menu/${params.id}`)
+                loader: ({ params }) => fetch(`https://elysium-server.vercel.app/food-menu/${params.id}`)
             },
             {
                 path: '/my-order',

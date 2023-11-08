@@ -4,6 +4,7 @@ import MyFoodItemCard from "../MyFoodItemCard/MyFoodItemCard";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { DataContext } from "../../../providers/DataProvider";
+import { Helmet } from "react-helmet";
 
 
 const MyFoodItem = () => {
@@ -31,7 +32,7 @@ const MyFoodItem = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/food-menu/${id}`, {
+                fetch(`https://elysium-server.vercel.app/food-menu/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -53,6 +54,10 @@ const MyFoodItem = () => {
     }
     return (
         <>
+            <Helmet>
+                <meta charSet='utf-8' />
+                <title>Elysium | Added Food Item</title>
+            </Helmet>
             <div className="container mx-auto pt-40 flex flex-col justify-center items-center gap-16">
                 <h2 className="text-6xl font-light tracking-widest">My Food Items</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-y-5 md:gap-x-16 mb-24">

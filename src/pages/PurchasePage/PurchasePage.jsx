@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const PurchasePage = () => {
@@ -31,7 +32,15 @@ const PurchasePage = () => {
         const incrementValue = 1;
         console.log(purchaseItem);
 
-        if (food_quantity > quantity) {
+        if (quantity == 0) {
+            Swal.fire({
+                title: "Warning!",
+                text: "Sorry, Item not available!",
+                icon: "warning",
+                confirmButtonText: "Okay",
+            });
+            return;
+        } else if (food_quantity > quantity) {
             Swal.fire({
                 title: "Warning!",
                 text: "Available quantity exceeded! Decrease the quantity amount!",
@@ -39,11 +48,19 @@ const PurchasePage = () => {
                 confirmButtonText: "Okay",
             });
             return;
+        } else if (food_quantity == 0) {
+            Swal.fire({
+                title: "Warning!",
+                text: "Quantity cannot be 0!",
+                icon: "warning",
+                confirmButtonText: "Okay",
+            });
+            return;
         }
-        axios.post('http://localhost:5000/purchase-item', purchaseItem)
+        axios.post('https://elysium-server.vercel.app/purchase-item', purchaseItem)
             .then(res => {
                 console.log(res.data);
-                fetch(`http://localhost:5000/food-menu/${_id}/increment`, {
+                fetch(`https://elysium-server.vercel.app/food-menu/${_id}/increment`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
@@ -71,6 +88,10 @@ const PurchasePage = () => {
 
     return (
         <div>
+            <Helmet>
+                <meta charSet='utf-8' />
+                <title>Elysium | Purchase</title>
+            </Helmet>
             <div className='w-full flex justify-center items-center bg-split h-screen'>
                 <div className='container bg-orange-50 lg:w-[1200px] h-[650px] flex flex-col justify-center items-center rounded-3xl shadow-lg'>
                     <Link className="my-12" to='/'>

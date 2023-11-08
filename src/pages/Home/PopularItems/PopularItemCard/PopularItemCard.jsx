@@ -9,7 +9,7 @@ const PopularItemCard = ({ foodItem }) => {
             <div className="w-full md:w-[350px] lg:w-[400px] bg-orange-100 dark:bg-orange-800 dark:bg-opacity-40 backdrop-filter overflow-hidden shadow-lg relative group bg-opacity-80 backdrop-blur-sm p-2 md:m-2">
                 <div className="h-[250px] relative pb-2/3 group-hover:transform group-hover:scale-105 transition-transform duration-500 flex justify-center items-center">
                     <img
-                        src='/public/img/food3.jpg'
+                        src={foodImage}
                         alt={foodName}
                         className="h-full w-full object-cover"
                     />

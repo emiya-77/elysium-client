@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const AddItem = () => {
 
@@ -24,7 +25,7 @@ const AddItem = () => {
         const newItem = { foodName, foodImage, foodCategory, price, addBy, madeBy, foodOrigin, shortDescription, quantity, orders };
         console.log(newItem);
 
-        fetch("http://localhost:5000/add-item", {
+        fetch("https://elysium-server.vercel.app/add-item", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -48,6 +49,10 @@ const AddItem = () => {
 
     return (
         <div>
+            <Helmet>
+                <meta charSet='utf-8' />
+                <title>Elysium | Add Item</title>
+            </Helmet>
             <div className='w-full flex justify-center items-center bg-split h-screen pt-20'>
                 <div className='container bg-orange-50 lg:w-[1200px] h-[650px] flex flex-col justify-center items-center rounded-3xl shadow-lg'>
                     <Link className="my-12" to='/'>

@@ -5,7 +5,7 @@ import axios from "axios";
 const useFoodItems = () => {
     const [allItems, setAllItems] = useState([]);
 
-    const url = 'http://localhost:5000/all-items';
+    const url = 'https://elysium-server.vercel.app/all-items';
     useEffect(() => {
         axios.get(url)
             .then(res => setAllItems(res.data));

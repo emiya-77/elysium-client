@@ -10,7 +10,7 @@ const PopularItems = () => {
     const { darkMode } = useContext(DataContext);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/top-items')
+        axios.get('https://elysium-server.vercel.app/top-items')
             .then(res => setTopItems(res.data));
     }, [setTopItems]);
 

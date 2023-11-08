@@ -3,6 +3,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import MyOrderCard from "../MyOrderCard/MyOrderCard";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const MyOrder = () => {
@@ -29,7 +30,7 @@ const MyOrder = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/purchase-item/${id}`, {
+                fetch(`https://elysium-server.vercel.app/purchase-item/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -52,36 +53,42 @@ const MyOrder = () => {
     }
 
     return (
-        <div className="container mx-auto pt-48">
-            <div className="p-4 bg-orange-50 rounded-lg">
-                <div className="overflow-x-auto">
-                    <table className="table">
-                        {/* head */}
-                        <thead>
-                            <tr>
-                                <th>
-                                    <label>
-                                        No.
-                                    </label>
-                                </th>
-                                <th>Food Image</th>
-                                <th>Food Name</th>
-                                <th>Price</th>
-                                <th>Added Date</th>
-                                <th>Food Owner</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        {/* rows */}
-                        <tbody>
-                            {
-                                myOrderList.map((orderItem, idx) => <MyOrderCard key={orderItem._id} idx={idx + 1} handleDelete={handleDelete} orderItem={orderItem}></MyOrderCard>)
-                            }
-                        </tbody>
-                    </table>
+        <>
+            <Helmet>
+                <meta charSet='utf-8' />
+                <title>Elysium | My Order</title>
+            </Helmet>
+            <div className="container mx-auto pt-48 mb-40">
+                <div className="p-4 bg-orange-50 rounded-lg">
+                    <div className="overflow-x-auto">
+                        <table className="table">
+                            {/* head */}
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <label>
+                                            No.
+                                        </label>
+                                    </th>
+                                    <th>Food Image</th>
+                                    <th>Food Name</th>
+                                    <th>Price</th>
+                                    <th>Added Date</th>
+                                    <th>Food Owner</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            {/* rows */}
+                            <tbody>
+                                {
+                                    myOrderList.map((orderItem, idx) => <MyOrderCard key={orderItem._id} idx={idx + 1} handleDelete={handleDelete} orderItem={orderItem}></MyOrderCard>)
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

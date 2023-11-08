@@ -8,7 +8,7 @@ const MyOrderCard = ({ orderItem, idx, handleDelete }) => {
     const { foodImage, madeBy } = foodInfo || {};
 
     useEffect(() => {
-        fetch(`http://localhost:5000/food-menu/${food_id}`)
+        fetch(`https://elysium-server.vercel.app/food-menu/${food_id}`)
             .then(res => res.json())
             .then(data => setFoodInfo(data))
     }, [food_id]);

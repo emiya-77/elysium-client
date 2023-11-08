@@ -72,7 +72,7 @@ const Register = () => {
         // create user in firebase
         createUser(email, password)
             .then(result => {
-                axios.post('http://localhost:5000/user', user)
+                axios.post('https://elysium-server.vercel.app/user', user)
                     .then(res => console.log(res.data));
 
                 setSuccess('User Created Successfully');
