@@ -68,11 +68,11 @@ const AddItem = () => {
                                     </div>
                                     <div className="flex items-center justify-center">
                                         <input className="input-text" type="text" name="foodCategory" placeholder="Food Category" required />
-                                        <input className="input-text" type="text" name="quantity" placeholder="Quantity" />
+                                        <input className="input-text" type="number" name="quantity" placeholder="Quantity" />
                                     </div>
                                     <div>
-                                        <input className="input-text" type="text" name="price" placeholder="Price" required />
-                                        <input className="input-text" type="text" name="addBy" placeholder="Add By" value={user?.email} required />
+                                        <input className="input-text" type="number" name="price" placeholder="Price" required />
+                                        <input className="input-text" type="email" name="addBy" placeholder="Add By" value={user?.email} required />
                                     </div>
                                     <div>
                                         <input className="input-text" type="text" name="foodOrigin" placeholder="Food Origin" required />

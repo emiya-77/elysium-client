@@ -11,7 +11,7 @@ const FoodMenu = () => {
     // const foodItems = useFoodItems();
     const [foodItems, setFoodItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
-    const [itemsPerPage, setItemsPerPage] = useState(6);
+    const [itemsPerPage, setItemsPerPage] = useState(9);
     const [count, setCount] = useState(0);
     const [query, setQuery] = useState("");
     console.log(foodItems);

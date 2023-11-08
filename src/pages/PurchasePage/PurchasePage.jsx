@@ -14,6 +14,7 @@ const PurchasePage = () => {
 
     const handlePurchase = e => {
         e.preventDefault();
+        console.log('hello');
         const form = e.target;
         const food_name = form.foodName.value;
         const food_price = form.price.value;
@@ -41,6 +42,7 @@ const PurchasePage = () => {
             });
             return;
         }
+
         if (food_quantity > quantity) {
             Swal.fire({
                 title: "Warning!",
@@ -124,11 +126,11 @@ const PurchasePage = () => {
                                         </div>
                                         <div>
                                             <h2 className="pl-10 text-lg text-orange-600">Price</h2>
-                                            <input className="input-text" type="text" name="price" placeholder="Price" defaultValue={price} />
+                                            <input className="input-text" type="number" name="price" placeholder="Price" defaultValue={price} />
                                         </div>
                                         <div>
                                             <h2 className="pl-10 text-lg text-orange-600">Available - {quantity}</h2>
-                                            <input className="input-text" type="text" name="food_quantity" placeholder="quantity" required />
+                                            <input className="input-text" type="number" name="food_quantity" placeholder="quantity" required />
                                         </div>
                                     </div>
                                 </div>
