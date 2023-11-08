@@ -14,6 +14,7 @@ import PurchasePage from "../../pages/PurchasePage/PurchasePage";
 import BlogPage from "../../pages/BlogPage/BlogPage";
 import MyOrder from "../../pages/MyOrder/MyOrder/MyOrder";
 import MyFoodItem from "../../pages/MyFoodItem/MyFoodItem/MyFoodItem";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -43,25 +44,35 @@ const router = createBrowserRouter([
             },
             {
                 path: '/add-item',
-                element: <AddItem></AddItem>
+                element: <PrivateRoute>
+                    <AddItem></AddItem>
+                </PrivateRoute>
             },
             {
                 path: '/food-details/:id',
-                element: <FoodDetails></FoodDetails>,
+                element: <PrivateRoute>
+                    <FoodDetails></FoodDetails>
+                </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/food-menu/${params.id}`)
             },
             {
                 path: '/purchase/:id',
-                element: <PurchasePage></PurchasePage>,
+                element: <PrivateRoute>
+                    <PurchasePage></PurchasePage>
+                </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/food-menu/${params.id}`)
             },
             {
                 path: '/my-order',
-                element: <MyOrder></MyOrder>
+                element: <PrivateRoute>
+                    <MyOrder></MyOrder>
+                </PrivateRoute>
             },
             {
                 path: '/my-food',
-                element: <MyFoodItem></MyFoodItem>
+                element: <PrivateRoute>
+                    <MyFoodItem></MyFoodItem>
+                </PrivateRoute>
             }
         ]
     }

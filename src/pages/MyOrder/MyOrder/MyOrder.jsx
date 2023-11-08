@@ -9,7 +9,7 @@ const MyOrder = () => {
     const { user } = useContext(AuthContext);
     const [myOrderList, setMyOrderList] = useState([]);
     const axiosSecure = useAxiosSecure();
-    console.log('email: ', user?.email);
+    console.log('order email: ', user?.email);
 
     const url = `/purchase-item?email=${user?.email}`;
     useEffect(() => {

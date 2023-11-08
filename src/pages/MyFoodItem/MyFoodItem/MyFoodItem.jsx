@@ -12,11 +12,12 @@ const MyFoodItem = () => {
     const [myFoodList, setMyFoodList] = useState([]);
     const axiosSecure = useAxiosSecure();
     const url = `/user-food?email=${user?.email}`;
+    console.log('user email:', user?.email);
     useEffect(() => {
         axiosSecure.get(url)
             .then(res => setMyFoodList(res.data));
-    }, [url, axiosSecure, refresh]);
-    console.log('user email:', user?.email);
+    }, [url, axiosSecure, refresh, user]);
+
     console.log('my food list:', myFoodList);
 
     const handleMyItemDelete = id => {

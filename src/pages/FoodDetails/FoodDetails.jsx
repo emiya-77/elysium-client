@@ -7,10 +7,10 @@ const FoodDetails = () => {
     const foodItem = useLoaderData();
     const navigate = useNavigate();
     const { user } = useAuth();
-    const { _id, foodName, foodImage, foodCategory, price, madeBy, foodOrigin, shortDescription } = foodItem || {};
+    const { _id, foodName, foodImage, foodCategory, price, madeBy, addBy, foodOrigin, shortDescription } = foodItem || {};
 
     const handleOrderClick = email => {
-        if (madeBy !== email) {
+        if (addBy !== email) {
             navigate(`/purchase/${_id}`);
         } else {
             Swal.fire({
@@ -23,7 +23,7 @@ const FoodDetails = () => {
     }
 
     return (
-        <div className="w-full h-screen bg-orange-50 pb-16 pt-32">
+        <div className="w-full h-screen mb-56 bg-orange-50 pb-16 pt-32">
             <div className="container h-[750px] bg-orange-200 mx-auto shadow-lg rounded-lg overflow-hidden flex">
                 <div className="w-2/3 h-full rounded-r-3xl shadow-lg flex justify-center items-center overflow-hidden">
                     <img className="w-full h-full object-cover" src="/public/img/food5.jpg" alt="" />

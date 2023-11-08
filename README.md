@@ -23,7 +23,7 @@ Welcome to Elysium – a full-stack web application designed for restaurant owne
 
 ## Live Website
 
-Explore Elysium on our [live website]().
+Explore Elysium on our [live website](https://elysium-5dc18.web.app).
 
 ## Main Features
 
