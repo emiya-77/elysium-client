@@ -1,8 +1,17 @@
 
+import { useEffect, useState } from 'react';
 import { RxCross1 } from 'react-icons/rx';
 
 const MyOrderCard = ({ orderItem, idx, handleDelete }) => {
-    const { food_name, food_price, date, _id } = orderItem || {};
+    const [foodInfo, setFoodInfo] = useState({});
+    const { food_name, food_price, date, _id, food_id } = orderItem || {};
+    const { foodImage, madeBy } = foodInfo || {};
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/food-menu/${food_id}`)
+            .then(res => res.json())
+            .then(data => setFoodInfo(data))
+    }, [food_id]);
     return (
         <tr>
             <th>
@@ -14,7 +23,7 @@ const MyOrderCard = ({ orderItem, idx, handleDelete }) => {
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                            <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                            <img src={foodImage} alt="Avatar Tailwind CSS Component" />
                         </div>
                     </div>
                 </div>
@@ -29,7 +38,7 @@ const MyOrderCard = ({ orderItem, idx, handleDelete }) => {
             </td>
             <td>{date}</td>
             <td>
-                <div className="font-semibold">Chef</div>
+                <div className="font-semibold">{madeBy}</div>
             </td>
             <td>
                 <button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-sm rounded-full w-10 h-10">

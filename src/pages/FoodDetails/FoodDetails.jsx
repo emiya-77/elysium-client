@@ -1,9 +1,26 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const FoodDetails = () => {
     const foodItem = useLoaderData();
-    const { _id, foodName, foodImage, foodCategory, price, madeBy, foodOrigin, shortDescription, longDescription } = foodItem || {};
+    const navigate = useNavigate();
+    const { user } = useAuth();
+    const { _id, foodName, foodImage, foodCategory, price, madeBy, foodOrigin, shortDescription } = foodItem || {};
+
+    const handleOrderClick = email => {
+        if (madeBy !== email) {
+            navigate(`/purchase/${_id}`);
+        } else {
+            Swal.fire({
+                title: "Warning!",
+                text: "You Cannot Order Your Own Food!",
+                icon: "warning",
+                confirmButtonText: "Okay",
+            });
+        }
+    }
 
     return (
         <div className="w-full h-screen bg-orange-50 pb-16 pt-32">
@@ -20,9 +37,9 @@ const FoodDetails = () => {
                         <h2 className="text-xl font-light line-clamp-[10]"><span className="font-normal">Description: </span>{shortDescription}</h2>
                         <h2 className="text-3xl font-medium"><span className="text-xl font-normal">Price: </span>{price}</h2>
                     </div>
-                    <Link to={`/purchase/${_id}`} className="flex justify-center items-center w-full py-3 text-orange-800 bg-orange-100 rounded-lg shadow-lg hover:bg-orange-300 hover:text-orange-950 transition-all duration-300">
+                    <div onClick={() => handleOrderClick(user.email)} className="flex cursor-pointer justify-center items-center w-full py-3 text-orange-800 bg-orange-100 rounded-lg shadow-lg hover:bg-orange-300 hover:text-orange-950 transition-all duration-300">
                         <button className="text-2xl">Order</button>
-                    </Link>
+                    </div>
                 </div>
             </div>
         </div>
