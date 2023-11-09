@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 
 const PopularItemCard = ({ foodItem }) => {
     const { foodName, foodImage, foodCategory, price, _id } = foodItem || {};
     console.log('from popular card:', foodItem);
     return (
         <>
-            <div className="w-full md:w-[350px] lg:w-[400px] bg-orange-100 dark:bg-orange-800 dark:bg-opacity-40 backdrop-filter overflow-hidden shadow-lg relative group bg-opacity-80 backdrop-blur-sm p-2 md:m-2">
+            <motion.div animate={{ scale: 1 }} transition={{ duration: 0.5 }} initial={{ scale: 0.6 }} className="w-full md:w-[350px] lg:w-[400px] bg-orange-100 dark:bg-orange-800 dark:bg-opacity-40 backdrop-filter overflow-hidden shadow-lg relative group bg-opacity-80 backdrop-blur-sm p-2 md:m-2">
                 <div className="h-[250px] relative pb-2/3 group-hover:transform group-hover:scale-105 transition-transform duration-500 flex justify-center items-center">
                     <img
                         src={foodImage}
@@ -30,7 +30,7 @@ const PopularItemCard = ({ foodItem }) => {
                         </Link>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
     );
 };

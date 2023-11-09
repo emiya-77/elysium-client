@@ -1,17 +1,22 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import { AuthContext } from "../../providers/AuthProvider";
 import { DataContext } from "../../providers/DataProvider";
-
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
     const { displayName, photoURL } = user || {};
     const { darkMode, setDarkMode } = useContext(DataContext);
+    const [profilePicture, setProfilePicture] = useState('');
     console.log(user);
 
+    useEffect(() => {
+        if (photoURL) {
+            setProfilePicture(photoURL);
+        }
+    }, [photoURL]);
 
     const handleLogOut = () => {
         logOut()
@@ -83,16 +88,19 @@ const Navbar = () => {
             <div className="text-2xl dark:font-light font-normal dark:tracking-widest tracking-wider dark:text-white text-black">
                 {displayName ? displayName : ''}
             </div>
-            <div className="ml-2 dropdown dropdown-bottom dropdown-end">
-                <label tabIndex={0} className="w-12 h-12 flex justify-center items-center bg-white rounded-full overflow-hidden cursor-pointer">
-                    <img src={photoURL ? photoURL : ''} className="w-full h-full object-cover" alt="" />
-                </label>
-                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><Link to={`/my-food`}>My Food Items</Link></li>
-                    <li><Link to='/add-item'>Add Food Item</Link></li>
-                    <li><Link to={`/my-order`}>My Order</Link></li>
-                </ul>
-            </div>
+            {
+                user &&
+                (<div className="ml-2 dropdown dropdown-bottom dropdown-end">
+                    <label tabIndex={0} className="w-12 h-12 flex justify-center items-center bg-white rounded-full overflow-hidden cursor-pointer">
+                        <img src={profilePicture} className="w-full h-full object-cover" alt="" />
+                    </label>
+                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><Link to={`/my-food`}>My Food Items</Link></li>
+                        <li><Link to='/add-item'>Add Food Item</Link></li>
+                        <li><Link to={`/my-order`}>My Order</Link></li>
+                    </ul>
+                </div>)
+            }
         </div>
         <li><Link to='/login'>
             <button onClick={handleLogOut} className="nav-list bg-white bg-opacity-0">Log Out</button>
@@ -117,16 +125,19 @@ const Navbar = () => {
                                     : <BsMoonFill className="w-6 h-6 text-black"></BsMoonFill>
                             }
                         </button>
-                        <div className="ml-2 dropdown dropdown-bottom dropdown-end">
-                            <label tabIndex={0} className="w-8 h-8 flex justify-center items-center bg-white rounded-full overflow-hidden cursor-pointer">
-                                <img src={photoURL ? photoURL : ''} className="w-full h-full object-cover" alt="" />
-                            </label>
-                            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                <li><Link to={`/my-food`}>My Food Items</Link></li>
-                                <li><Link to='/add-item'>Add Food Item</Link></li>
-                                <li><Link to={`/my-order`}>My Order</Link></li>
-                            </ul>
-                        </div>
+                        {
+                            user &&
+                            <div className="ml-2 dropdown dropdown-bottom dropdown-end">
+                                <label tabIndex={0} className="w-8 h-8 flex justify-center items-center bg-white rounded-full overflow-hidden cursor-pointer">
+                                    <img src={profilePicture} className="w-full h-full object-cover" alt="" />
+                                </label>
+                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li><Link to={`/my-food`}>My Food Items</Link></li>
+                                    <li><Link to='/add-item'>Add Food Item</Link></li>
+                                    <li><Link to={`/my-order`}>My Order</Link></li>
+                                </ul>
+                            </div>
+                        }
                         <div className="dropdown lg:hidden">
                             <label tabIndex={0} className="lg:hidden">
                                 <label tabIndex={0} className="btn btn-ghost lg:hidden">

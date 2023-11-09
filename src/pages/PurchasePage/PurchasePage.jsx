@@ -12,9 +12,9 @@ const PurchasePage = () => {
     const { _id, foodName, price, quantity } = foodItem || {};
     const { displayName, email, uid } = user || {};
 
+
     const handlePurchase = e => {
         e.preventDefault();
-        console.log('hello');
         const form = e.target;
         const food_name = form.foodName.value;
         const food_price = form.price.value;
@@ -52,10 +52,10 @@ const PurchasePage = () => {
             });
             return;
         }
-        if (food_quantity == 0) {
+        if (food_quantity <= 0) {
             Swal.fire({
                 title: "Warning!",
-                text: "Quantity cannot be 0!",
+                text: "Quantity cannot be 0 or less!",
                 icon: "warning",
                 confirmButtonText: "Okay",
             });

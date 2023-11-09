@@ -63,14 +63,14 @@ const FoodMenu = () => {
                 <title>Elysium | Food Menu</title>
             </Helmet>
             <div className="flex flex-col pt-24 justify-center items-center">
-                <div className="container mx-auto mt-12 rounded-full h-[100px] bg-orange-200 flex justify-center items-center">
+                <div className="container mx-auto mt-12 md:rounded-full h-[100px] bg-orange-200 flex justify-center items-center px-4">
                     <div className="relative">
                         <AiOutlineSearch className="absolute top-4 left-6" size={40} color='#c39e73' opacity={.8}></AiOutlineSearch>
-                        <input value={query} onChange={e => setQuery(e.target.value)} type="text" name="search" placeholder="Search" className="w-[900px] h-[70px] pl-24 text-2xl tracking-wider font-light bg-white rounded-full focus:outline-none border-none" />
+                        <input value={query} onChange={e => setQuery(e.target.value)} type="text" name="search" placeholder="Search" className="w-full md:w-[900px] h-[70px] pl-20 md:pl-24 text-2xl tracking-wider font-light bg-white rounded-full focus:outline-none border-none" />
                     </div>
                 </div>
                 <div className="container mx-auto my-16 flex flex-col justify-center items-center gap-16">
-                    <h2 className="text-6xl font-light tracking-widest">The Complete Menu</h2>
+                    <h2 className="text-3xl md:text-6xl font-light tracking-widest">The Complete Menu</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 md:gap-y-5 md:gap-x-16">
                         {
                             query

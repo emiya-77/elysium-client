@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 
 const FoodItemCard = ({ foodItem }) => {
     const { foodName, foodImage, foodCategory, price, quantity, _id } = foodItem || {};
     return (
         <>
-            <div className="w-[400px] bg-orange-100 overflow-hidden shadow-lg relative group bg-opacity-80 backdrop-blur-sm m-2">
+            <motion.div animate={{ scale: 1 }} transition={{ duration: 0.5 }} initial={{ scale: 0.6 }} className="w-full md:w-[400px] bg-orange-100 overflow-hidden shadow-lg relative group bg-opacity-80 backdrop-blur-sm md:m-2">
                 <div className="h-[250px] relative pb-2/3 group-hover:transform group-hover:scale-105 transition-transform duration-500 flex justify-center items-center">
                     <img
                         src={foodImage}
@@ -32,7 +32,7 @@ const FoodItemCard = ({ foodItem }) => {
                         </Link>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
     );
 };

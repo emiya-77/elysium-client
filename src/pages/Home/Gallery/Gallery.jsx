@@ -5,7 +5,7 @@ const Gallery = () => {
     return (
         <>
             <div className='p-4 md:p-16 bg-[#f9f6f0] dark:bg-gray-700 text-orange-50'>
-                <div className="text-center mb-14">
+                <div className="text-center mb-14 text-orange-900 dark:text-orange-50">
                     <h3 className='text-xl md:text-3xl'>Our Gallery</h3>
                     <h1 className='text-3xl md:text-5xl font-semibold tracking-wider'>Our Untold Stories</h1>
                 </div>
