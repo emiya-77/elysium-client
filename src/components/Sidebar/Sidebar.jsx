@@ -5,12 +5,10 @@ import { AiOutlineUser, AiOutlineHome } from 'react-icons/ai';
 import { BiMoon, BiSun } from 'react-icons/bi';
 import { FiLogOut } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import React, { useContext, useState } from 'react';
-import { DataContext } from '../../providers/DataProvider';
+import React, { useState } from 'react';
 
 const Sidebar = () => {
 
-    const { darkMode, setDarkMode } = useContext(DataContext);
     const [open, setOpen] = useState(true);
 
     const menus = [
@@ -29,14 +27,14 @@ const Sidebar = () => {
             <div className={`bg-orange-50 dark:bg-[#ba721b] dark:text-white min-h-screen ${open ? 'w-72' : 'w-16'} duration-700 text-black px-3`}>
                 <div className={`py-3 flex ${open ? 'justify-between' : 'justify-center'}`}>
                     <Link className='h-[60px] flex items-center' to='/home'>
-                        <img className={`${!open && 'hidden'} w-[100px] md:w-[150px]`} src={darkMode ? '/img/logo/elysium-dark.png' : '/public/img/logo/elysium-light.png'} alt="" />
+                        <img className={`${!open && 'hidden'} w-[100px] md:w-[150px]`} src='/img/logo/swift-parcel.png' alt="" />
                     </Link>
                     <HiMenuAlt3 size={26} onClick={() => setOpen(!open)} className='cursor-pointer'></HiMenuAlt3>
                 </div>
                 <div className='mt-4 flex flex-col gap-4 relative'>
                     {
                         menus?.map((menu, i) => (
-                            <Link onClick={menu?.theme ? () => { setDarkMode(!darkMode) } : () => { }} className={`${menu?.margin ? 'mt-5' : menu?.marginBot ? 'mb-5' : ''} ${(darkMode && menu?.light) ? 'hidden' : (!darkMode && menu?.dark) ? 'hidden' : ''} group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-[#eec38e] rounded-md`} to={menu?.link} key={i}>
+                            <Link className={`${menu?.margin ? 'mt-5' : menu?.marginBot ? 'mb-5' : ''} group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-[#eec38e] rounded-md`} to={menu?.link} key={i}>
                                 <div>
                                     {React.createElement(menu?.icon, { size: '24' })}
                                 </div>

@@ -15,7 +15,7 @@ const FoodItemCard = ({ foodItem }) => {
                 </div>
                 <div className="flex flex-col text-orange-900">
                     <div className="px-6 pt-3 pb-1">
-                        <div className="font-normal text-3xl tracking-wider mb-2">{foodName}</div>
+                        <div className="font-normal text-3xl tracking-wider mb-2 line-clamp-1">{foodName}</div>
                         <p className="text-xl font-light tracking-wider">{foodCategory}</p>
                     </div>
                     <div className="px-6 flex justify-between items-center">

@@ -34,7 +34,7 @@ const MyFoodItemCard = ({ foodItem, handleMyItemDelete }) => {
         const madeBy = user?.displayName;
         const foodOrigin = form.foodOrigin.value;
         const shortDescription = form.shortDescription.value;
-        const quantity = form.quantity.value;
+        const quantity = parseInt(form.quantity.value, 10);
 
         const updatedItem = { foodName, foodImage, foodCategory, price, addBy, madeBy, foodOrigin, shortDescription, quantity, orders };
         console.log(updatedItem);

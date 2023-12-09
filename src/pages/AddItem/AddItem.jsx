@@ -19,7 +19,7 @@ const AddItem = () => {
         const madeBy = user?.displayName;
         const foodOrigin = form.foodOrigin.value;
         const shortDescription = form.shortDescription.value;
-        const quantity = form.quantity.value;
+        const quantity = parseInt(form.quantity.value, 10);
         const orders = 0;
 
         const newItem = { foodName, foodImage, foodCategory, price, addBy, madeBy, foodOrigin, shortDescription, quantity, orders };
@@ -71,7 +71,7 @@ const AddItem = () => {
                                         <input className="input-text" type="number" name="quantity" placeholder="Quantity" />
                                     </div>
                                     <div>
-                                        <input className="input-text" type="number" name="price" placeholder="Price" required />
+                                        <input className="input-text" type="text" name="price" placeholder="Price" required />
                                         <input className="input-text" type="email" name="addBy" placeholder="Add By" value={user?.email} required />
                                     </div>
                                     <div>
